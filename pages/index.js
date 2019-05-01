@@ -5,6 +5,7 @@ import {
   Geographies,
   Geography
 } from "react-simple-maps";
+import FlexView from "react-flexview";
 
 const wrapperStyles = {
   width: "100%",
@@ -19,7 +20,14 @@ const statsStyle = {
 };
 
 const countryStyle = {
-  textAlign: "center"
+  textAlign: "center",
+  margin: "0px"
+};
+
+const linkStyle = {
+  textAlign: "center",
+  padding: "5px",
+  margin: "20px"
 };
 
 //I used C++ to parse csv and create giant dict,
@@ -237,7 +245,7 @@ var stats_dict = {
   USA: ["United States", 318563456, 2440000.0, 28800000.0, 258000000, 0.809886],
   UZB: ["Uzbekistan", 29774500, null, null, 4000000, 0.134343],
   VCT: ["St. Vincent and the Grenadines", 109455, 900.0, null, 31561, 0.288347],
-  VEN: ["Venezuela RB", 29893080, 232700.0, 123157.0, 9779093, 0.327136],
+  VEN: ["Venezuela", 29893080, 232700.0, 123157.0, 9779093, 0.327136],
   VGB: ["British Virgin Islands", 20645, null, null, 21099, 1.02199],
   VIR: ["Virgin Islands (U.S.)", 105784, null, null, 146500, 1.3849],
   VNM: ["Vietnam", 86932500, 141000.0, 2995153.5, 9570300, 0.110089],
@@ -317,7 +325,9 @@ class BasicMap extends Component {
   render() {
     return (
       <div style={wrapperStyles}>
-        <h1>Environ 244: World Environmental Waste Statistics</h1>
+        <h1 style={countryStyle}>
+          Environ 244: World Environmental Waste Statistics
+        </h1>
 
         <ComposableMap
           projectionConfig={{
@@ -374,28 +384,41 @@ class BasicMap extends Component {
           </ZoomableGroup>
         </ComposableMap>
         <div style={statsStyle}>
-          <h2 style={countryStyle}>{this.state.country_name}</h2>
-          <h4>Population:</h4>
-          {this.state.population}
-          <h4>Electronic Waste (tons/year):</h4>
-          {this.state.e_waste}
-          <h4>Hazardous Waste (tons/year):</h4>
-          {this.state.haz_waste}
-          <h4>Municipal Solid Waste / Consumer Waste (tons/year):</h4>
-          {this.state.total_msw}
-          <h4>Municipal Solid Waste Per Capita:</h4>
-          {this.state.msw_per_person}
+          <div>
+            <h2 style={countryStyle}>{this.state.country_name}</h2>
+            <h4 style={countryStyle}>Population: {this.state.population}</h4>
+          </div>
+          <FlexView hAlignContent="center" vAlignContent="center">
+            <FlexView column>
+              <h4>Electronic Waste (tons/year):</h4>
+              {this.state.e_waste}
+            </FlexView>
+            <FlexView column>
+              <h4>Hazardous Waste (tons/year):</h4>
+              {this.state.haz_waste}
+            </FlexView>
+            <FlexView column>
+              <h4>Municipal Solid Waste / Consumer Waste (tons/year):</h4>
+              {this.state.total_msw}
+            </FlexView>
+            <FlexView column>
+              <h4>Municipal Solid Waste Per Capita:</h4>
+              {this.state.msw_per_person}
+            </FlexView>
+          </FlexView>
         </div>
-        <a href="https://github.com/schrecka/environ244_nextjs">
-          Website Repository
-          <img
-            border="0"
-            alt="Github"
-            src="components/GitHub-Mark-32px.png"
-            width="100"
-            height="100"
-          />
-        </a>
+        <div style={linkStyle}>
+          <a href="https://github.com/schrecka/environ244_nextjs">
+            Website by Adam Schreck
+            <img
+              border="0"
+              alt="Github"
+              src="GitHub-Mark-32px.png"
+              width="20"
+              height="20"
+            />
+          </a>
+        </div>
       </div>
     );
   }

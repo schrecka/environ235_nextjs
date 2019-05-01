@@ -3,6 +3,8 @@
   "name": "environ235_nextjs",
   "builds": [
     { "src": "package.json", "use": "@now/next" },
-    { "src": "world-50m.json", "use": "@now/static" }
-  ]
+    { "src": "world-50m.json", "use": "@now/static" },
+    { "src": "GitHub-Mark-32px.png", "use": "@now/static" }
+  ],
+  "alias": ["www.adamschreck.me"]
 }
