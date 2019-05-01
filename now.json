@@ -3,6 +3,6 @@
   "name": "environ235_nextjs",
   "builds": [
     { "src": "package.json", "use": "@now/next" },
-    { "src": "world-50m.json", "use": "@now/node" }
+    { "src": "world-50m.json", "use": "@now/static" }
   ]
 }

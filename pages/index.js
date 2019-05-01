@@ -326,7 +326,7 @@ class BasicMap extends Component {
           }}
         >
           <ZoomableGroup center={[0, 20]} disablePanning>
-            <Geographies geography="/static/world-50m.json">
+            <Geographies geography="world-50m.json">
               {(geographies, projection) =>
                 geographies.map(
                   (geography, i) =>
