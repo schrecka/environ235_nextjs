@@ -13,11 +13,14 @@ const wrapperStyles = {
 };
 
 const statsStyle = {
-  textAlign: "center",
   border: "5px solid green"
 };
 
-//I used C++ to parse csv and create giant dict,dont worry
+const countryStyle = {
+  textAlign: "center"
+};
+
+//I used C++ to parse csv and create giant dict, didn't type it out dont worry
 // 3 letter country code is key,
 //value 0 = country name
 //value 1 = population
@@ -83,7 +86,7 @@ var stats_dict = {
   DOM: ["Dominican Republic", 10528394, 57000.0, null, 4063910, 0.385995],
   DZA: ["Algeria", 40606052, 252000.0, 330000.0, 12378740, 0.30485],
   ECU: ["Ecuador", 16144368, 73000.0, 193812.0, 5297211, 0.328115],
-  EGY: ["Egypt Arab Rep.", 87813257, 497000.0, 380000.0, 21000000, 0.239144],
+  EGY: ["Egypt", 87813257, 497000.0, 380000.0, 21000000, 0.239144],
   ERI: ["Eritrea", 4474690, 3800.0, null, 726957, 0.16246],
   ESP: ["Spain", 46447697, 1202597.0, 2984518.0, 20151000, 0.433843],
   EST: ["Estonia", 1315407, 34312.0, 10410321.0, 473000, 0.359585],
@@ -256,7 +259,7 @@ class BasicMap extends Component {
     //value 4 = total_msw_total_msw_generated_tons_year municipal solid waste
     //value 5 = msw per person
     this.state = {
-      country_name: "Welcome to Environ 235",
+      country_name: "Welcome to Environ 244",
       population: null,
       e_waste: null,
       haz_waste: null,
@@ -368,7 +371,7 @@ class BasicMap extends Component {
           </ZoomableGroup>
         </ComposableMap>
         <div style={statsStyle}>
-          <h1>{this.state.country_name}</h1>
+          <h1 style={countryStyle}>{this.state.country_name}</h1>
           {this.state.population}, {this.state.e_waste}, {this.state.haz_waste},
           {this.state.total_msw}, {this.state.msw_per_person}
         </div>
