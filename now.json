@@ -1,1 +1,8 @@
-{"version":2,"name":"environ235_nextjs","builds":[{"src":"package.json","use":"@now/next"}]}
+{
+  "version": 2,
+  "name": "environ235_nextjs",
+  "builds": [
+    { "src": "package.json", "use": "@now/next" },
+    { "src": "world-50m.json", "use": "@now/node" }
+  ]
+}

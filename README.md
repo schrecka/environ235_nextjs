@@ -44,9 +44,7 @@ class AboutPage extends Component {
             This is another page of the SSR example, you accessed it{" "}
             <strong>{this.props.isServer ? "server" : "client"} side</strong>.
           </p>
-          <p>
-            You can reload to see how the page change.
-          </p>
+          <p>You can reload to see how the page change.</p>
           <Link href="/">
             <a>Go to Home</a>
           </Link>
@@ -73,8 +71,8 @@ export default () => (
 
 ```js
 module.exports = {
-  target: 'serverless'
-}
+  target: "serverless"
+};
 ```
 
 ### Deploy with Now
@@ -91,11 +89,9 @@ In this case we are going to use `@now/next` to build and deploy our Next.js app
 
 ```json
 {
-    "version": 2,
-    "name": "nextjs",
-    "builds": [
-        { "src": "next.config.js", "use": "@now/next" }
-    ]
+  "version": 2,
+  "name": "nextjs",
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
 }
 ```
 
