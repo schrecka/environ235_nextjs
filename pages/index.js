@@ -13,14 +13,16 @@ const wrapperStyles = {
 };
 
 const statsStyle = {
-  border: "5px solid green"
+  border: "5px solid green",
+  width: "100%",
+  padding: "5px"
 };
 
 const countryStyle = {
   textAlign: "center"
 };
 
-//I used C++ to parse csv and create giant dict, didn't type it out dont worry
+//I used C++ to parse csv and create giant dict,
 // 3 letter country code is key,
 //value 0 = country name
 //value 1 = population
@@ -120,7 +122,7 @@ var stats_dict = {
   IMN: ["Isle of Man", 80759, null, null, 50551, 0.625949],
   IND: ["India", 1071477855, 1700000.0, 7467000.0, 168403240, 0.157169],
   IRL: ["Ireland", 4586897, 212874.0, 482907.0, 2692537, 0.587006],
-  IRN: ["Iran Islamic Rep.", 80277428, 630000.0, 8000000.0, 17885000, 0.22279],
+  IRN: ["Iran", 80277428, 630000.0, 8000000.0, 17885000, 0.22279],
   IRQ: ["Iraq", 36115649, 221000.0, 20622.0, 13140000, 0.363831],
   ISL: ["Iceland", 330815, 7600.0, 7000.0, 525000, 1.58699],
   ISR: ["Israel", 8380100, 120000.0, 321000.0, 5400000, 0.644384],
@@ -246,7 +248,6 @@ var stats_dict = {
   ZAF: ["South Africa", 51729345, 321000.0, 1319096.0, 18457232, 0.356804],
   ZMB: ["Zambia", 14264756, 15000.0, 80000.0, 2608268, 0.182847]
   //use C++ to parse csv and create giant dict,
-  // you can make array are value, country name as key
 };
 
 class BasicMap extends Component {
@@ -259,7 +260,7 @@ class BasicMap extends Component {
     //value 4 = total_msw_total_msw_generated_tons_year municipal solid waste
     //value 5 = msw per person
     this.state = {
-      country_name: "Welcome to Environ 244",
+      country_name: "Choose a Country",
       population: null,
       e_waste: null,
       haz_waste: null,
@@ -316,6 +317,8 @@ class BasicMap extends Component {
   render() {
     return (
       <div style={wrapperStyles}>
+        <h1>Environ 244: World Environmental Waste Statistics</h1>
+
         <ComposableMap
           projectionConfig={{
             scale: 205,
@@ -371,9 +374,17 @@ class BasicMap extends Component {
           </ZoomableGroup>
         </ComposableMap>
         <div style={statsStyle}>
-          <h1 style={countryStyle}>{this.state.country_name}</h1>
-          {this.state.population}, {this.state.e_waste}, {this.state.haz_waste},
-          {this.state.total_msw}, {this.state.msw_per_person}
+          <h2 style={countryStyle}>{this.state.country_name}</h2>
+          <h4>Population:</h4>
+          {this.state.population}
+          <h4>Electronic Waste (tons/year):</h4>
+          {this.state.e_waste}
+          <h4>Hazardous Waste (tons/year):</h4>
+          {this.state.haz_waste}
+          <h4>Municipal Solid Waste(MSW) / Consumer Waste (tons/year):</h4>
+          {this.state.total_msw}
+          <h4>MSW Per Capita:</h4>
+          {this.state.msw_per_person}
         </div>
       </div>
     );
